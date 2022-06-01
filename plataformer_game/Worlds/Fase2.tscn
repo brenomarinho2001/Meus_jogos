@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://tiles and background_foreground (new)/bg_2.png" type="Texture" id=2]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Tile.tscn" type="PackedScene" id=4]
+[ext_resource path="res://tiles and background_foreground (new)/bg_0.png" type="Texture" id=5]
+[ext_resource path="res://tiles and background_foreground (new)/bg_1.png" type="Texture" id=6]
+
+[node name="Cena_Principal" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 96.151, 400 )
+
+[node name="Backg" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Backg"]
+
+[node name="FUNDO" type="ParallaxLayer" parent="Backg/ParallaxBackground"]
+visible = false
+z_index = -7
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 360, 0 )
+
+[node name="Sprite3" type="Sprite" parent="Backg/ParallaxBackground/FUNDO"]
+position = Vector2( 180, 480 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 5 )
+
+[node name="Sprite4" type="Sprite" parent="Backg/ParallaxBackground/FUNDO"]
+position = Vector2( 896, 479 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 5 )
+
+[node name="Arvores_escuro" type="ParallaxLayer" parent="Backg/ParallaxBackground"]
+z_index = 100
+motion_scale = Vector2( 0.7, 1 )
+motion_mirroring = Vector2( 360, 0 )
+
+[node name="Sprite2" type="Sprite" parent="Backg/ParallaxBackground/Arvores_escuro"]
+modulate = Color( 0.117647, 0.113725, 0.113725, 1 )
+position = Vector2( 176, 480 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Backg/ParallaxBackground/Arvores_escuro"]
+modulate = Color( 0.117647, 0.113725, 0.113725, 1 )
+position = Vector2( 895, 480 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 6 )
+
+[node name="Arvores_escuro2" type="ParallaxLayer" parent="Backg/ParallaxBackground"]
+z_index = 100
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 360, 0 )
+
+[node name="Sprite2" type="Sprite" parent="Backg/ParallaxBackground/Arvores_escuro2"]
+modulate = Color( 0.117647, 0.113725, 0.113725, 1 )
+self_modulate = Color( 0.94902, 0.898039, 0.898039, 0.494118 )
+position = Vector2( 100, 440 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="Backg/ParallaxBackground/Arvores_escuro2"]
+modulate = Color( 0.117647, 0.113725, 0.113725, 1 )
+self_modulate = Color( 0.94902, 0.898039, 0.898039, 0.494118 )
+position = Vector2( 819, 440 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 6 )
+
+[node name="Pedras" type="ParallaxLayer" parent="Backg/ParallaxBackground"]
+z_index = 100
+motion_scale = Vector2( 0.9, 1 )
+motion_mirroring = Vector2( 240, 0 )
+
+[node name="Sprite3" type="Sprite" parent="Backg/ParallaxBackground/Pedras"]
+position = Vector2( -376.248, 521.143 )
+texture = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Backg/ParallaxBackground/Pedras"]
+position = Vector2( 103.752, 520.143 )
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="Backg/ParallaxBackground/Pedras"]
+position = Vector2( 583, 520 )
+texture = ExtResource( 2 )
+
+[node name="HUD" parent="." instance=ExtResource( 3 )]
+
+[node name="TileMap" parent="." instance=ExtResource( 4 )]
